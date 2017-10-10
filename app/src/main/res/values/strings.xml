@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Im OK</string>
+    <string name="continuarahora">Listo puedes continuar</string>
+    <string name="aceptarpermisos">Debes aceptar todos los permisos</string>
+    <string name="mensajeayuda">Estas bien? Responde 1 Si estas bien, o cualquier otro texto si necesitas ayuda!</string>
+    <string name="inicializar">Debes inicializar primero</string>
+    <string name="mensajes_entregados">Mensajes entregados correctamente</string>
+    <string name="cargaexitosa">Carga exitosa</string>
+</resources>

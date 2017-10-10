@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext{
+    versionSupport = '26.1.0'
+    versionRetroFit = '2.3.0'
+    versionGSON = '2.3.0'
+    versionOkHTTP = '3.6.0'
+    versionFirebase = '11.0.2'
+    versionButterknife = '8.7.0'
+    versionDesign = '25.3.1'
+    versionButterknifeCompiler = '8.7.0'
+    versionPlayServices = '11.0.4'
+    versionGlide = '4.0.0-RC1'
+    versionActiveAndroid = '3.1.0-SNAPSHOT'
+    versionEventBus = '3.0.0';
+}
