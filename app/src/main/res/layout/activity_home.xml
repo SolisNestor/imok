@@ -20,7 +20,7 @@
         android:layout_height="275dp">
 
         <ImageView
-            android:src="@drawable/Oval"
+            android:src="@drawable/oval"
             android:layout_centerInParent="true"
             android:layout_width="275dp"
             android:layout_height="275dp" />
@@ -93,7 +93,7 @@
         <TextView
             android:textStyle="bold"
             android:text="alerta\nenviada"
-            android:textSize="@dimen/sp_medium"
+            android:textSize="@dimen/sp_large"
             android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
@@ -115,5 +115,171 @@
             android:layout_height="@dimen/dp_fifthbase" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dp_seventhbase"
+        android:layout_marginRight="@dimen/dp_seventhbase"
+        android:id="@+id/user_options"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:text="alerta\nen proceso"
+            android:textSize="@dimen/sp_large"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_basic_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_ok"
+            android:layout_marginTop="@dimen/dp_fourthbase"
+            android:textSize="@dimen/sp_medium_large"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_fourthbase"
+            android:paddingRight="@dimen/dp_fourthbase"
+            android:text="Estoy bien"
+            android:drawableLeft="@drawable/ic_check_white_24dp"
+            android:drawablePadding="0dp"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/btn_ok"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_help"
+            android:layout_marginTop="@dimen/dp_fourthbase"
+            android:textSize="@dimen/sp_medium_large"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_fourthbase"
+            android:paddingRight="@dimen/dp_fourthbase"
+            android:text="Necesito Ayuda"
+            android:drawableLeft="@drawable/ic_notifications_white_24dp"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/btn_help"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dp_seventhbase"
+        android:layout_marginRight="@dimen/dp_seventhbase"
+        android:id="@+id/user_help_actions"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:text="llama por ayuda"
+            android:textSize="@dimen/sp_large"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_basic_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_help_firefighter"
+            android:layout_marginTop="@dimen/dp_fourthbase"
+            android:textSize="@dimen/sp_medium_large"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_fourthbase"
+            android:paddingRight="@dimen/dp_fourthbase"
+            android:text="Llamar Bomberos"
+            android:drawablePadding="0dp"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/btn_fire"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_help_police"
+            android:layout_marginTop="@dimen/dp_fourthbase"
+            android:textSize="@dimen/sp_medium_large"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_fourthbase"
+            android:paddingRight="@dimen/dp_fourthbase"
+            android:text="Llamar Policía"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/btn_police"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_help_fox"
+            android:layout_marginTop="@dimen/dp_fourthbase"
+            android:textSize="@dimen/sp_medium_large"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_fourthbase"
+            android:paddingRight="@dimen/dp_fourthbase"
+            android:text="Llamar a FOX"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/btn_fox"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="72dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dp_seventhbase"
+        android:layout_marginRight="@dimen/dp_seventhbase"
+        android:id="@+id/user_ok_answer"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:text="Gracias\npor tu reporte"
+            android:textSize="@dimen/sp_large"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_basic_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_marginTop="@dimen/dp_fourthbase"
+            android:textSize="@dimen/sp_regular"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_fourthbase"
+            android:paddingRight="@dimen/dp_fourthbase"
+            android:text="Salir de la aplicación"
+            android:textAllCaps="true"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_fifthbase" />
+
+    </LinearLayout>
+
 
 </RelativeLayout>

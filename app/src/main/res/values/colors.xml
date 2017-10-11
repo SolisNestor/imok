@@ -38,4 +38,10 @@
     <color name="status_help">#FAD7DC</color>
     <color name="status_missing">#FFF3D3</color>
 
+    <color name="btn_ok">#66BD07</color>
+    <color name="btn_help">#D0021B</color>
+    <color name="btn_fire">@color/btn_help</color>
+    <color name="btn_police">#1963BA</color>
+    <color name="btn_fox">@color/colorPrimary</color>
+
 </resources>
