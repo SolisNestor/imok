@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,6 +30,7 @@
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_semilarge"
+            android:id="@+id/btnActivar"
             android:fontFamily="sans-serif-medium"
             android:background="@color/black_00"
             android:layout_centerInParent="true"
@@ -281,5 +281,11 @@
 
     </LinearLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/user_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
 
 </RelativeLayout>

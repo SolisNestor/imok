@@ -15,6 +15,7 @@
             android:textSize="@dimen/sp_default"
             android:text="Apellido, Nombre"
             android:id="@+id/user_name"
+            android:textColor="@color/icons_basic_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

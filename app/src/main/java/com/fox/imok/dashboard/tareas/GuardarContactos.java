@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
 import com.fox.imok.dashboard.DashboardInteractor;
@@ -64,6 +65,7 @@ public class GuardarContactos extends AsyncTask<String, String, String> {
                             tbContactos.setNombre(name);
                             tbContactos.setTelefono(phoneNo);
                             tbContactos.save();
+                            Log.e(getClass().getName(),"nombre "+name);
                         }
                         pCur.close();
                     }

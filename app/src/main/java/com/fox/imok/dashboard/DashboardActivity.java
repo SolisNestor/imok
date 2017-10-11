@@ -4,12 +4,18 @@ import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fox.imok.R;
+import com.fox.imok.dashboard.adaptador.AdaptadorContacts;
 import com.fox.imok.domain.bd.TBContactos;
 import com.fox.imok.domain.permisos.PermisoObj;
 import com.fox.imok.domain.permisos.Permisos;
@@ -22,10 +28,15 @@ import butterknife.OnClick;
 
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View {
 
-    @BindView(R.id.progress)
-    ProgressBar progress;
-    @BindView(R.id.txtContactos)
-    TextView txtContactos;
+    @BindView(R.id.alert_sent)
+    LinearLayout progress;
+    @BindView(R.id.btn_active_alert)
+    RelativeLayout btn_active_alert;
+    @BindView(R.id.user_recycler)
+    RecyclerView recyclerView;
+
+    private AdaptadorContacts adapter;
+
     private DashboardContract.Presenter presenter;
     private Permisos permisos;
     private PermisoObj permisosObj = new PermisoObj(new String[]{
@@ -38,7 +49,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         new DashboardPresenter(this, new DashboardInteractor(this));
     }
@@ -81,6 +92,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     @Override
     public void setProgress(boolean show) {
         progress.setVisibility(show ? View.VISIBLE : View.GONE);
+        btn_active_alert.setVisibility(show ? View.GONE : View.VISIBLE);
     }
 
     /**
@@ -99,6 +111,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
     public void smsOk() {
         setProgress(false);
         message(getString(R.string.mensajes_entregados));
+        btn_active_alert.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
+
     }
 
     /**
@@ -124,7 +139,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
      * Se utiliza para solicitar permisos si el SO es igual o mayor a android 6 y
      * carga los contactos a una base de datos.
      */
-    @OnClick(R.id.btn)
+    @OnClick(R.id.btnActivar)
     public void inicializar() {
         if (permisos == null)
             permisos = new Permisos(this, permisosObj);
@@ -151,13 +166,20 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
      */
     @Override
     public void setContactos(List<TBContactos> tbContactos) {
-        txtContactos.setText("");
+        if(adapter==null){
+            adapter = new AdaptadorContacts(tbContactos);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(
+                    new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+            recyclerView.addItemDecoration(
+                    new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        }else
+            adapter.setTbContactos(tbContactos);
         String contactos ="";
         for (int i = 0; i < tbContactos.size() ; i++) {
             TBContactos contacto = tbContactos.get(i);
             contactos+=contacto.getNombre()+" "+contacto.getTelefono()+" "+contacto.isOk()+" \n";
         }
-        txtContactos.setText(contactos);
     }
 
     /**
@@ -167,27 +189,17 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
     @Override
     public void actualizarContactos(List<TBContactos> tbContactos) {
-        txtContactos.setText("");
-        String contactos ="";
-        for (int i = 0; i < tbContactos.size() ; i++) {
-            TBContactos contacto = tbContactos.get(i);
-            contactos+=contacto.getNombre()+" "+contacto.getTelefono()+" "+contacto.isOk()+" \n";
-        }
-        txtContactos.setText(contactos);
+        adapter.setTbContactos(tbContactos);
     }
 
     @Override
     public void cargaContactosOk() {
         setProgress(false);
-        message(getString(R.string.cargaexitosa));
+        presenter.obtenerContactos();
+        presenter.enviarSms();
     }
 
     /**
      * Envia los mensajes de texto a los contactos almacenados en la base de datos.
      */
-    @OnClick(R.id.btnSendSMS)
-    public void onViewClicked() {
-        presenter.obtenerContactos();
-        presenter.enviarSms();
-    }
 }
