@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/dp_doublebase"
+    android:paddingRight="@dimen/dp_doublebase"
+    android:background="@color/white"
+    android:layout_width="match_parent" android:layout_height="@dimen/dp_seventhbase">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="@dimen/sp_default"
+            android:text="Apellido, Nombre"
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="@dimen/dp_half"
+            android:textColor="@color/icons_basic_color"
+            android:textSize="@dimen/sp_regular"
+            android:text="1234 5678"
+            android:id="@+id/user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/user_actions"
+        android:gravity="center|right"
+        android:layout_alignParentRight="true"
+        android:layout_width="@dimen/dp_sixthbase"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:visibility="gone"
+            android:id="@+id/user_act_call"
+            android:src="@drawable/ic_phone_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/user_act_ok"
+            android:src="@drawable/ic_check_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

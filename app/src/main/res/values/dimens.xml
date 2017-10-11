@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- STANDARD MEASURES ANDROID -->
+
+    <dimen name="dp_half">4dp</dimen>
+    <dimen name="dp_base">8dp</dimen>
+    <dimen name="dp_doublebase">16dp</dimen>
+    <dimen name="dp_triplebase">24dp</dimen>
+    <dimen name="dp_fourthbase">32dp</dimen>
+    <dimen name="dp_fifthbase">40dp</dimen>
+    <dimen name="dp_sixthbase">48dp</dimen>
+    <dimen name="dp_seventhbase">56dp</dimen>
+
+    <!-- NEW FONT SIZES -->
+    <dimen name="sp_xsmall">8sp</dimen>
+    <dimen name="sp_small">10sp</dimen>
+    <dimen name="sp_regular">12sp</dimen>
+    <dimen name="sp_regular_large">13sp</dimen>
+    <dimen name="sp_default">14sp</dimen>
+    <dimen name="sp_medium_small">15sp</dimen>
+    <dimen name="sp_medium">16sp</dimen>
+    <dimen name="sp_medium_large">18sp</dimen>
+    <dimen name="sp_scores">20sp</dimen>
+    <dimen name="sp_large">24sp</dimen>
+    <dimen name="sp_semilarge">30sp</dimen>
+    <dimen name="sp_extra_large">36sp</dimen>
+
+
+</resources>

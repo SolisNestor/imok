@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#EF4F1D</color>
+    <color name="colorPrimaryDark">#CD3900</color>
+    <color name="colorAccent">#cccccc</color>
+
+    <color name="icons_basic_color">#8b000000</color>
+    <color name="tabs_inactive_color">#46000000</color>
+    <color name="inactive_text">#1f000000</color>
+
+    <color name="black">#000000</color>
+    <color name="black_95">#F2000000</color>
+    <color name="black_85">#D8000000</color>
+    <color name="black_75">#bf000000</color>
+    <color name="black_65">#A6000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_35">#59000000</color>
+    <color name="black_25">#40000000</color>
+    <color name="black_10">#1a000000</color>
+    <color name="black_00">#00000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white_90">#E6ffffff</color>
+    <color name="white_85">#D8ffffff</color>
+    <color name="white_75">#BFffffff</color>
+    <color name="white_70">#B3ffffff</color>
+    <color name="white_50">#80ffffff</color>
+    <color name="white_45">#73ffffff</color>
+    <color name="white_25">#40ffffff</color>
+    <color name="white_20">#33ffffff</color>
+    <color name="white_10">#1affffff</color>
+    <color name="almostWhite">#E9EAE4</color>
+    <color name="background_color">#fafafa</color>
+    <color name="odd_cell">#f9f9f9</color>
+
+
+    <color name="status_ok">#EDFFDA</color>
+    <color name="status_help">#FAD7DC</color>
+    <color name="status_missing">#FFF3D3</color>
+
 </resources>
