@@ -175,11 +175,6 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
                     new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         }else
             adapter.setTbContactos(tbContactos);
-        String contactos ="";
-        for (int i = 0; i < tbContactos.size() ; i++) {
-            TBContactos contacto = tbContactos.get(i);
-            contactos+=contacto.getNombre()+" "+contacto.getTelefono()+" "+contacto.isOk()+" \n";
-        }
     }
 
     /**
