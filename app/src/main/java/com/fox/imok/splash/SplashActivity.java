@@ -8,6 +8,7 @@ import com.fox.imok.R;
 import com.fox.imok.dashboard.DashboardActivity;
 
 public class SplashActivity extends AppCompatActivity implements SplashContrato.Vista {
+
     private SplashContrato.Presentador presentador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

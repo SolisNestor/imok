@@ -14,4 +14,6 @@ public class Aplication extends Application {
         super.onCreate();
         ActiveAndroid.initialize(this);
     }
+
+
 }

@@ -5,6 +5,7 @@ package com.fox.imok.splash;
  */
 
 public interface SplashContrato {
+
     interface Vista{
         void cambiarPantalla();
     }
