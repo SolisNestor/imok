@@ -6,4 +6,16 @@
     <string name="inicializar">Debes inicializar primero</string>
     <string name="mensajes_entregados">Mensajes entregados correctamente</string>
     <string name="cargaexitosa">Carga exitosa</string>
+    <string name="contactoscargados">Contactos cargados!</string>
+    <string name="contactosoperaciones.permiso.leercontacto">Debes aceptar el permiso para acceder a tu agenda</string>
+    <string name="contactosoperaciones.permiso.llamar">Debes aceptar el permiso para poder realizar la llamada</string>
+    <string name="contactosoperaciones.permiso.enviarsms">Debes aceptar el permiso para poder enviar SMS</string>
+    <string name="contactosoperaciones.operacionexitosa">Operacion exitosa</string>
+    <string name="contactosoperaciones.contactonoexiste">El contacto con el número $s no existe</string>
+    <string name="reporteempleados">Empleados Reportados</string>
+    <string name="enviandoalertas">Enviando alertas..</string>
+    <string name="reeviaralertas">Reenviar alertas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

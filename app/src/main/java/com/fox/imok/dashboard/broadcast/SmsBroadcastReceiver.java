@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 
 import com.activeandroid.query.Select;
+import com.fox.imok.alerta.AlertaActivity;
 import com.fox.imok.dashboard.eventbus.ContactoEventBus;
 import com.fox.imok.domain.bd.TBContactos;
 
@@ -30,15 +31,21 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         String senderNo = currentSMS.getDisplayOriginatingAddress();
                         String message = currentSMS.getDisplayMessageBody();
                         TBContactos contactos = new Select().from(TBContactos.class).where("telefono=?", senderNo.replaceAll(" ", "")).executeSingle();
-                        if (contactos != null) {
-                            if (message.toLowerCase().contains("imok"))
-                                contactos.setOk(true);
-                            else
-                                contactos.setOk(false);
-                            Date currentTime = Calendar.getInstance().getTime();
-                            contactos.setFechaHoraRespuesta(currentTime.getTime());
-                            contactos.setMensajeRespuesta(message);
-                            contactos.save();
+                        if(message.equalsIgnoreCase("alerta") && contactos!=null && contactos.isAdmin()){
+                            Intent i = new Intent(context, AlertaActivity.class);
+                            i.putExtra("alerta", true);
+                            context.startActivity(i);
+                        }else {
+                            if (contactos != null) {
+                                if (message.toLowerCase().contains("imok"))
+                                    contactos.setOk(true);
+                                else
+                                    contactos.setOk(false);
+                                Date currentTime = Calendar.getInstance().getTime();
+                                contactos.setFechaHoraRespuesta(currentTime.getTime());
+                                contactos.setMensajeRespuesta(message);
+                                contactos.save();
+                            }
                         }
                     }
                     EventBus.getDefault().post(new ContactoEventBus());

@@ -1,5 +1,7 @@
 package com.fox.imok;
 
+import android.content.Context;
+
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.app.Application;
 
@@ -9,11 +11,15 @@ import com.activeandroid.app.Application;
 
 public class Aplication extends Application {
 
+    private static  Context context;
     @Override
     public void onCreate() {
         super.onCreate();
         ActiveAndroid.initialize(this);
+        context = this;
     }
 
-
+    public static Context getContext() {
+        return context;
+    }
 }

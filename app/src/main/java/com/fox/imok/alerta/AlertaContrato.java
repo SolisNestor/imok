@@ -11,14 +11,15 @@ import com.fox.imok.domain.models.Progreso;
 
 public interface AlertaContrato {
     interface Vista{
-        void ocultarBotonPrincipal();
+        void ocultarBotonPrincipal(boolean show);
         void mostrarProgreso(Progreso progreso);
+        void mostrarMensaje(String mensaje);
         void mostrarAlertaEnProceso();
         void mostrarError(Error error);
+        void solicitarPermiso(String permiso);
     }
 
     interface Presentador{
-        void validarAlertaEnProceso(Context context);
         void enviarAlerta();
     }
 }

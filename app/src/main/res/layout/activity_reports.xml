@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -12,10 +12,10 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:title="Reporte de Empleados"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_seventhbase"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary"
+            android:title="Reporte de Empleados" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/FavTabs"
@@ -25,49 +25,24 @@
             app:tabIndicatorColor="@color/white"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            app:tabMode="scrollable"
             app:tabTextAppearance="@style/AppTabTextAppearance"
-            app:tabGravity="fill">
-
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tabAll"
-                android:text="Todos" />
-
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tabOK"
-                android:text="I'm OK" />
-
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tabHelp"
-                android:text="Necesito Ayuda" />
-
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tabWait"
-                android:text="Sin Respuesta" />
-
-        </android.support.design.widget.TabLayout>
-
+            app:tabGravity="center"/>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/user_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AppBarLayout"
+        >
 
-    <Button
-        android:textColor="@color/white"
-        android:text="Reenviar alertas"
-        android:fontFamily="sans-serif-medium"
-        android:textAllCaps="true"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_seventhbase" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
 
-</android.support.design.widget.CoordinatorLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>

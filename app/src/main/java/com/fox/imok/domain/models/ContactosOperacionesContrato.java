@@ -9,13 +9,22 @@ import java.util.List;
  */
 
 public interface ContactosOperacionesContrato {
-    void initContactos(Callback callback);
-    List<TBContactos> obtenerContactos();
-    void actualizarContacto(TBContactos contacto);
+    void initContactos(AgendaCallback callback);
+    void obtenerContactos(CallbackContactos callback);
+    void actualizarContacto(String telefono, boolean envioMensaje, String mensaje);
+    void actualizarContacto(TBContactos contacto, boolean envioMensaje, String mensaje);
     void enviarSMS();
     void enviarSMS(TBContactos contacto);
     void llamar(TBContactos contacto);
-    interface Callback{
-        boolean contactosCargados(String mensaje);
+    void setCallbackContactosOperaciones(CallbackContactosOperaciones callbackContactosOperaciones);
+    interface CallbackContactosOperaciones{
+        void onResult(boolean result, String message);
+        void requestPermission(String permiso);
+    }
+    interface CallbackContactos{
+        void onResult(boolean result, List<TBContactos> contactos, String message);
+    }
+    interface AgendaCallback{
+        void onResult(boolean result, String message);
     }
 }

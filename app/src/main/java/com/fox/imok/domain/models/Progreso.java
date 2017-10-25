@@ -7,6 +7,10 @@ package com.fox.imok.domain.models;
 public class Progreso {
     private int progress;
 
+    public Progreso(int progress) {
+        this.progress = progress;
+    }
+
     public int getProgress() {
         return progress;
     }

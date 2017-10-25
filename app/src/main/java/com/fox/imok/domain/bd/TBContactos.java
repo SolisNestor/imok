@@ -4,6 +4,9 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Created by NestorSo on 28/09/2017.
  */
@@ -24,7 +27,21 @@ public class TBContactos extends Model {
     private String mensajeRespuesta;
     @Column(name = "ok")
     private boolean ok;
+    @Column(name = "admin")
+    private boolean admin;
 
+
+    public void actualizar(boolean envioMensaje, String mensaje){
+        Date currentTime = Calendar.getInstance().getTime();
+        if(envioMensaje){
+            setFechaHoraEnvio(currentTime.getTime());
+            setMensajeEnvio(mensaje);
+        }else{
+            setFechaHoraRespuesta(currentTime.getTime());
+            setMensajeRespuesta(mensaje);
+        }
+        save();
+    }
     public String getNombre() {
         return nombre;
     }
@@ -81,5 +98,13 @@ public class TBContactos extends Model {
 
     public void setOk(boolean ok) {
         this.ok = ok;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

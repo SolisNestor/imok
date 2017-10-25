@@ -8,6 +8,7 @@ public interface SplashContrato {
 
     interface Vista{
         void cambiarPantalla();
+        void mostrarMensaje(String mensaje);
     }
     interface Presentador{
         void iniciarTiempo();

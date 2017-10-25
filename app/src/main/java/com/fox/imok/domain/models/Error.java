@@ -6,6 +6,7 @@ package com.fox.imok.domain.models;
 
 public class Error {
     private String mensaje;
+    private int resourceMensaje;
 
     public String getMensaje() {
         return mensaje;
@@ -13,5 +14,13 @@ public class Error {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public int getResourceMensaje() {
+        return resourceMensaje;
+    }
+
+    public void setResourceMensaje(int resourceMensaje) {
+        this.resourceMensaje = resourceMensaje;
     }
 }

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".Aplication"
@@ -49,7 +50,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".alerta.AlertaActivity"/>
+        <activity android:name=".alerta.AlertaActivity" />
+        <activity android:name=".reporte.ReporteActivity"></activity>
     </application>
 
 </manifest>
