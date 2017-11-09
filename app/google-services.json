@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "404779438065",
+    "firebase_url": "https://imok-bbe88.firebaseio.com",
+    "project_id": "imok-bbe88",
+    "storage_bucket": "imok-bbe88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404779438065:android:f964ec9883bef963",
+        "android_client_info": {
+          "package_name": "com.fox.imok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404779438065-3g4077enrv658skfgssfb96b000mg7nc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fox.imok",
+            "certificate_hash": "a7e0908d1b243b7bfdc6143eccf4423c74df0671"
+          }
+        },
+        {
+          "client_id": "404779438065-9um50kabq0f1daelsv5mo090lv9cmbv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHu3cuomfPeOWw_VIFxI9wzsk7QwIEtF8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "404779438065-9um50kabq0f1daelsv5mo090lv9cmbv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
