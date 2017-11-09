@@ -48,7 +48,8 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
         }
         boolean isInit = sharedPreferences.getBoolean(KEY_INIT, false);
         if (!isInit)
-            new AgendaContactos(mContext, callback).execute("");
+            new AgendaContactosAWS(mContext, callback);
+            //new AgendaContactos(mContext, callback).execute("");
         else
             callback.onResult(true, mContext.getString(R.string.contactoscargados));
 
