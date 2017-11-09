@@ -98,12 +98,40 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
         });
     }
 
+    @Override
+    public void enviarSMS(final String mensaje) {
+        obtenerContactos(new CallbackContactos() {
+            @Override
+            public void onResult(boolean result, List<TBContactos> contactos, String message) {
+                if (result)
+                    processSendSms(contactos, 0, mensaje);
+            }
+        });
+    }
+
     private void processSendSms(List<TBContactos> contactos, int indice) {
         if (indice < contactos.size()) {
             enviarSMS(contactos.get(indice));
             processSendSms(contactos, indice + 1);
         } else
             sendCallBack(true, getContext().getString(R.string.mensajes_entregados));
+    }
+
+    private void processSendSms(List<TBContactos> contactos, int indice, String mensaje) {
+        if (indice < contactos.size()) {
+            enviarSMS(contactos.get(indice), mensaje);
+            processSendSms(contactos, indice + 1, mensaje);
+        } else
+            sendCallBack(true, getContext().getString(R.string.mensajes_entregados));
+    }
+
+    @Override
+    public void enviarSMS(TBContactos contacto, String mensaje) {
+        if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(getContext(), Manifest.permission.SEND_SMS)) {
+            smsManager.sendTextMessage(contacto.getTelefono(), null, mensaje, null, null);
+            actualizarContacto(contacto, true, mensaje);
+        } else
+            sendCallBack(Manifest.permission.SEND_SMS);
     }
 
     @Override

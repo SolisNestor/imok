@@ -41,11 +41,12 @@ ext{
     versionGSON = '2.3.0'
     versionOkHTTP = '3.6.0'
     versionFirebase = '11.0.2'
-    versionButterknife = '8.7.0'
+    versionButterknife = '8.8.1'
     versionDesign = '25.3.1'
     versionButterknifeCompiler = '8.7.0'
     versionPlayServices = '11.0.4'
     versionGlide = '4.0.0-RC1'
     versionActiveAndroid = '3.1.0-SNAPSHOT'
     versionEventBus = '3.0.0'
+    versionAWS ='2.6.0'
 }

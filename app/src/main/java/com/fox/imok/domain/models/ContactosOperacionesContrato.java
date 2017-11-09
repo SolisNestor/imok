@@ -14,6 +14,8 @@ public interface ContactosOperacionesContrato {
     void actualizarContacto(String telefono, boolean envioMensaje, String mensaje);
     void actualizarContacto(TBContactos contacto, boolean envioMensaje, String mensaje);
     void enviarSMS();
+    void enviarSMS(String mensaje);
+    void enviarSMS(TBContactos contacto, String mensaje);
     void enviarSMS(TBContactos contacto);
     void llamar(TBContactos contacto);
     void setCallbackContactosOperaciones(CallbackContactosOperaciones callbackContactosOperaciones);
