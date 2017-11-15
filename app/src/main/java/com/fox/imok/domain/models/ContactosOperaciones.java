@@ -39,6 +39,7 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
         sharedPreferences = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE);
         smsManager = SmsManager.getDefault();
     }
+
     @Override
     public void initContactos(AgendaCallback callback) {
         if (!Permisos.permisoUtilCheck(getContext(), Manifest.permission.READ_CONTACTS)) {
@@ -119,7 +120,9 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
 
     private void processSendSms(List<TBContactos> contactos, int indice, String mensaje) {
         if (indice < contactos.size()) {
-            enviarSMS(contactos.get(indice), mensaje);
+            final TBContactos contacto = contactos.get(indice);
+            if (contacto.getFechaHoraRespuesta() == 0)
+                enviarSMS(contactos.get(indice), mensaje);
             processSendSms(contactos, indice + 1, mensaje);
         } else
             sendCallBack(true, getContext().getString(R.string.mensajes_entregados));

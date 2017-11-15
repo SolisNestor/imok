@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import com.fox.imok.R;
 import com.fox.imok.alerta.AlertaActivity;
-import com.fox.imok.dashboard.DashboardActivity;
-import com.fox.imok.domain.bd.TBContactos;
 import com.fox.imok.domain.models.ContactosOperaciones;
 import com.fox.imok.domain.models.ContactosOperacionesContrato;
 import com.fox.imok.domain.permisos.PermisoObj;
@@ -46,7 +44,6 @@ public class SplashActivity extends AppCompatActivity implements SplashContrato.
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (permisos.onRequestPermissionsResult(requestCode, permissions, grantResults)) {
-
             presentador.iniciarTiempo();
         } else
             mostrarMensaje(getString(R.string.aceptarpermisos));
@@ -85,6 +82,7 @@ public class SplashActivity extends AppCompatActivity implements SplashContrato.
         permisos = new Permisos(this, permisosObj);
         permisos.solicitarPermisos();
     }
+
 
     private void abrirPantalla() {
         Intent i = new Intent(SplashActivity.this, AlertaActivity.class);

@@ -15,6 +15,8 @@ public class SplashPresentador implements SplashContrato.Presentador {
 
     @Override
     public void iniciarTiempo() {
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

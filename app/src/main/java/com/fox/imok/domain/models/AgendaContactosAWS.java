@@ -5,6 +5,7 @@ import android.util.ArrayMap;
 import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
+import com.activeandroid.query.Delete;
 import com.fox.imok.R;
 import com.fox.imok.domain.bd.TBContactos;
 import com.fox.imok.domain.io.ConstantsUrls;
@@ -62,6 +63,7 @@ public class AgendaContactosAWS {
     private void processContacts (JsonArray list){
         try {
             ActiveAndroid.beginTransaction();
+            new Delete().from(TBContactos.class).execute();
             for (int x = 0; x < list.size(); x++) {
                 TBContactos contacto = new TBContactos();
                 JsonObject json = list.get(x).getAsJsonObject();

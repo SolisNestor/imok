@@ -7,6 +7,7 @@ import com.activeandroid.ActiveAndroid;
 import com.activeandroid.app.Application;
 import com.amazonaws.mobile.auth.core.IdentityManager;
 import com.amazonaws.mobile.config.AWSConfiguration;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 /**
  * Created by NestorSo on 28/09/2017.

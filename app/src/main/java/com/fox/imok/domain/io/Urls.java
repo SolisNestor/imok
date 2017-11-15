@@ -14,4 +14,10 @@ import retrofit2.http.POST;
 public interface Urls {
     @POST(ConstantsUrls.ENDPOINT_LIST_USERS)
     Call<JsonElement> listusers(@Body JsonObject info);
+
+    @POST(ConstantsUrls.ENDPOINT_SAVE_FCM)
+    Call<JsonElement> saveFCM(@Body JsonObject info);
+
+    @POST(ConstantsUrls.ENDPOINT_SAVE_SMS)
+    Call<JsonElement> saveSMS(@Body JsonObject info);
 }
