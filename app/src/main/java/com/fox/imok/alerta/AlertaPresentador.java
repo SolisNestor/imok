@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.fox.imok.Aplication;
+import com.fox.imok.R;
 import com.fox.imok.domain.models.ConstantsContactosOperaciones;
 import com.fox.imok.domain.models.ContactosOperaciones;
 import com.fox.imok.domain.models.ContactosOperacionesContrato;
@@ -47,5 +48,7 @@ public class AlertaPresentador implements AlertaContrato.Presentador, ContactosO
     public void requestPermission(String permiso) {
         vista.solicitarPermiso(permiso);
     }
+
+
 
 }

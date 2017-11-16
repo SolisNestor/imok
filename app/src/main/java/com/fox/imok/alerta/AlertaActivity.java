@@ -12,12 +12,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
 import com.fox.imok.R;
+import com.fox.imok.dashboard.eventbus.ContactoEventBus;
+import com.fox.imok.domain.bd.TBContactos;
 import com.fox.imok.domain.models.Error;
 import com.fox.imok.domain.models.Progreso;
 import com.fox.imok.domain.permisos.PermisoObj;
 import com.fox.imok.domain.permisos.Permisos;
 import com.fox.imok.reporte.ReporteActivity;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

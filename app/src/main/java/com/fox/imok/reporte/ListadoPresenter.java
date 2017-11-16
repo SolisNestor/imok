@@ -42,7 +42,7 @@ public class ListadoPresenter implements ContratoReporte.Presenter, AdapterLista
     @Override
     public void reenviarSMS() {
         view.showProgress(new Progreso(0));
-        contactosOperaciones.enviarSMS();
+        contactosOperaciones.reenviarSMS();
     }
 
     @Override

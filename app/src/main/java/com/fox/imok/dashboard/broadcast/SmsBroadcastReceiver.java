@@ -47,10 +47,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             context.startActivity(i);
                         }else {
                             if (contactos != null) {
-                                if (message.toLowerCase().contains("imok"))
-                                    contactos.setOk(true);
-                                else
+                                if (message.toLowerCase().equalsIgnoreCase("1"))
                                     contactos.setOk(false);
+                                else
+                                    contactos.setOk(true);
                                 Date currentTime = Calendar.getInstance().getTime();
                                 contactos.setFechaHoraRespuesta(currentTime.getTime());
                                 contactos.setMensajeRespuesta(message);

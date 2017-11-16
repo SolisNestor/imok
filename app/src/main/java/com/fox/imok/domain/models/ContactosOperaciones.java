@@ -13,9 +13,12 @@ import android.telephony.SmsManager;
 import com.activeandroid.query.Select;
 import com.fox.imok.Aplication;
 import com.fox.imok.R;
+import com.fox.imok.dashboard.eventbus.ContactoEventBus;
 import com.fox.imok.domain.bd.TBContactos;
 import com.fox.imok.domain.permisos.PermisoObj;
 import com.fox.imok.domain.permisos.Permisos;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -27,6 +30,7 @@ import java.util.List;
 
 public class ContactosOperaciones implements ContactosOperacionesContrato {
     public static final String KEY_INIT = "init";
+    public static final String KEY_MESSAGE = "message";
 
     private final SmsManager smsManager;
     private final Context mContext;
@@ -50,7 +54,6 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
         boolean isInit = sharedPreferences.getBoolean(KEY_INIT, false);
         if (!isInit)
             new AgendaContactosAWS(mContext, callback);
-            //new AgendaContactos(mContext, callback).execute("");
         else
             callback.onResult(true, mContext.getString(R.string.contactoscargados));
 
@@ -89,6 +92,12 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
     }
 
     @Override
+    public void reenviarSMS() {
+        List<TBContactos> contactos = new Select().from(TBContactos.class).where("ok=? and fechahorarespuesta = ?", false, 0).execute();
+        processSendSms(contactos, 0);
+    }
+
+    @Override
     public void enviarSMS() {
         obtenerContactos(new CallbackContactos() {
             @Override
@@ -124,8 +133,10 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
             if (contacto.getFechaHoraRespuesta() == 0)
                 enviarSMS(contactos.get(indice), mensaje);
             processSendSms(contactos, indice + 1, mensaje);
-        } else
+        } else {
             sendCallBack(true, getContext().getString(R.string.mensajes_entregados));
+            EventBus.getDefault().post(new ContactoEventBus());
+        }
     }
 
     @Override
@@ -139,7 +150,7 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
 
     @Override
     public void enviarSMS(TBContactos contacto) {
-        final String mensaje = getContext().getString(R.string.mensajeayuda);
+        final String mensaje = sharedPreferences.getString(KEY_MESSAGE, getContext().getString(R.string.mensajeayuda));
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(getContext(), Manifest.permission.SEND_SMS)) {
             smsManager.sendTextMessage(contacto.getTelefono(), null, mensaje, null, null);
             actualizarContacto(contacto, true, mensaje);
@@ -151,6 +162,7 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
     public void llamar(TBContactos contacto) {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + contacto.getTelefono()));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE))
             getContext().startActivity(intent);
         else
