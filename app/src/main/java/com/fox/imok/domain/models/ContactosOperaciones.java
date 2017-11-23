@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.telephony.SmsManager;
+import android.util.Log;
 
 import com.activeandroid.query.Select;
 import com.fox.imok.Aplication;
@@ -131,7 +132,7 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
         if (indice < contactos.size()) {
             final TBContactos contacto = contactos.get(indice);
             if (contacto.getFechaHoraRespuesta() == 0)
-                enviarSMS(contactos.get(indice), mensaje);
+                enviarSMS(contactos.get(indice), "Prueba Fox Talks, 0 imOk, 1 necesito ayuda");
             processSendSms(contactos, indice + 1, mensaje);
         } else {
             sendCallBack(true, getContext().getString(R.string.mensajes_entregados));
@@ -143,6 +144,7 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
     public void enviarSMS(TBContactos contacto, String mensaje) {
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(getContext(), Manifest.permission.SEND_SMS)) {
             smsManager.sendTextMessage(contacto.getTelefono(), null, mensaje, null, null);
+            //Log.e(getClass().getName(),contacto.getTelefono()+" Prueba Fox Talks, 0 imOk, 1 necesito ayuda");
             actualizarContacto(contacto, true, mensaje);
         } else
             sendCallBack(Manifest.permission.SEND_SMS);
@@ -152,7 +154,8 @@ public class ContactosOperaciones implements ContactosOperacionesContrato {
     public void enviarSMS(TBContactos contacto) {
         final String mensaje = sharedPreferences.getString(KEY_MESSAGE, getContext().getString(R.string.mensajeayuda));
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(getContext(), Manifest.permission.SEND_SMS)) {
-            smsManager.sendTextMessage(contacto.getTelefono(), null, mensaje, null, null);
+            smsManager.sendTextMessage(contacto.getTelefono(), null, "Prueba Fox Talks, 0 imOk, 1 necesito ayuda", null, null);
+            //Log.e(getClass().getName(),contacto.getTelefono()+" Prueba Fox Talks, 0 imOk, 1 necesito ayuda");
             actualizarContacto(contacto, true, mensaje);
         } else
             sendCallBack(Manifest.permission.SEND_SMS);
